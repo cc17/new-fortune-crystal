@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { getChineseZodiac, getConstellation, generateAnswer } from '../utils/zodiac'
 import { products } from '../data/products'
+import { constellations } from '../data/constellations'
+import { cities } from '../data/cities'
 import './FortunePage.css'
 
 function FortunePage() {
@@ -8,7 +10,8 @@ function FortunePage() {
     year: '',
     month: '',
     day: '',
-    topic: '爱情',
+    city: '',
+    topic: 'Love',
     email: ''
   })
   
@@ -34,20 +37,24 @@ function FortunePage() {
     const newErrors = {}
     
     if (!formData.year || formData.year < 1900 || formData.year > 2024) {
-      newErrors.year = '请输入有效的年份（1900-2024）'
+      newErrors.year = 'Please enter a valid year (1900-2024)'
     }
     
     if (!formData.month || formData.month < 1 || formData.month > 12) {
-      newErrors.month = '请输入有效的月份（1-12）'
+      newErrors.month = 'Please enter a valid month (1-12)'
     }
     
     if (!formData.day || formData.day < 1 || formData.day > 31) {
-      newErrors.day = '请输入有效的日期（1-31）'
+      newErrors.day = 'Please enter a valid day (1-31)'
+    }
+    
+    if (!formData.city) {
+      newErrors.city = 'Please select a city'
     }
     
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!formData.email || !emailRegex.test(formData.email)) {
-      newErrors.email = '请输入有效的邮箱地址'
+      newErrors.email = 'Please enter a valid email address'
     }
     
     setErrors(newErrors)
@@ -86,7 +93,8 @@ function FortunePage() {
       year: '',
       month: '',
       day: '',
-      topic: '爱情',
+      city: '',
+      topic: 'Love',
       email: ''
     })
     setResult(null)
@@ -95,13 +103,16 @@ function FortunePage() {
 
   return (
     <div className="fortune-page">
-      <h2 className="page-title">生日占卜</h2>
-      <p className="page-subtitle">输入您的生日，探索命运的奥秘</p>
+      <div className="hero-section">
+        <div className="cosmic-bg"></div>
+        <h2 className="page-title">Birthday Fortune</h2>
+        <p className="page-subtitle">Discover your destiny through the stars</p>
+      </div>
 
       <div className="form-container">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label className="form-label">出生日期</label>
+            <label className="form-label">Birth Date</label>
             <div className="date-inputs">
               <div className="input-wrapper">
                 <input
@@ -109,12 +120,12 @@ function FortunePage() {
                   name="year"
                   value={formData.year}
                   onChange={handleChange}
-                  placeholder="年"
+                  placeholder="Year"
                   className={errors.year ? 'error' : ''}
                   min="1900"
                   max="2024"
                 />
-                <span className="input-suffix">年</span>
+                <span className="input-suffix">Y</span>
               </div>
               <div className="input-wrapper">
                 <input
@@ -122,12 +133,12 @@ function FortunePage() {
                   name="month"
                   value={formData.month}
                   onChange={handleChange}
-                  placeholder="月"
+                  placeholder="Month"
                   className={errors.month ? 'error' : ''}
                   min="1"
                   max="12"
                 />
-                <span className="input-suffix">月</span>
+                <span className="input-suffix">M</span>
               </div>
               <div className="input-wrapper">
                 <input
@@ -135,12 +146,12 @@ function FortunePage() {
                   name="day"
                   value={formData.day}
                   onChange={handleChange}
-                  placeholder="日"
+                  placeholder="Day"
                   className={errors.day ? 'error' : ''}
                   min="1"
                   max="31"
                 />
-                <span className="input-suffix">日</span>
+                <span className="input-suffix">D</span>
               </div>
             </div>
             {(errors.year || errors.month || errors.day) && (
@@ -151,9 +162,28 @@ function FortunePage() {
           </div>
 
           <div className="form-group">
-            <label className="form-label">想问的问题</label>
+            <label className="form-label">Birth City</label>
+            <select
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+              className={`city-select ${errors.city ? 'error' : ''}`}
+            >
+              {cities.map(city => (
+                <option key={city.value} value={city.value}>
+                  {city.label}
+                </option>
+              ))}
+            </select>
+            {errors.city && (
+              <span className="error-message">{errors.city}</span>
+            )}
+          </div>
+
+          <div className="form-group">
+            <label className="form-label">Topic</label>
             <div className="topic-buttons">
-              {['爱情', '事业', '财富', '学业'].map(topic => (
+              {['Love', 'Career', 'Wealth', 'Study'].map(topic => (
                 <button
                   key={topic}
                   type="button"
@@ -167,7 +197,7 @@ function FortunePage() {
           </div>
 
           <div className="form-group">
-            <label className="form-label">邮箱地址</label>
+            <label className="form-label">Email Address</label>
             <input
               type="email"
               name="email"
@@ -182,44 +212,114 @@ function FortunePage() {
           </div>
 
           <button type="submit" className="submit-button">
-            开始占卜
+            Start Reading
           </button>
         </form>
       </div>
 
       {result && (
         <div className="result-container">
-          <h3 className="result-header">占卜结果</h3>
+          <div className="result-badge">✨ YOUR DESTINY ✨</div>
+          <h3 className="result-header">Fortune Reading Result</h3>
           
           <div className="info-cards">
             <div className="info-card">
               <div className="info-icon">🐉</div>
-              <div className="info-label">生肖</div>
+              <div className="info-label">Zodiac</div>
               <div className="info-value">{result.zodiac}</div>
             </div>
-            <div className="info-card">
-              <div className="info-icon">⭐</div>
-              <div className="info-label">星座</div>
-              <div className="info-value">{result.constellation}</div>
+          </div>
+
+          <div className="constellation-section">
+            <h4 className="constellation-header">YOUR CONSTELLATION</h4>
+            <div className="constellations-grid">
+              {constellations.map((constellation) => (
+                <div 
+                  key={constellation.name}
+                  className={`constellation-card ${
+                    constellation.name === result.constellation ? 'active' : ''
+                  }`}
+                >
+                  <div className="constellation-symbol">{constellation.symbol}</div>
+                  <div className="constellation-icon">{constellation.icon}</div>
+                  <div className="constellation-name">{constellation.name}</div>
+                  <div className="constellation-en-name">{constellation.enName}</div>
+                  <div className="constellation-date">{constellation.dateRange}</div>
+                  {constellation.name === result.constellation && (
+                    <div className="active-badge">YOUR SIGN</div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
 
           <div className="answer-card">
-            <h4 className="answer-title">关于【{result.topic}】的解答</h4>
+            <h4 className="answer-title">About【{result.topic}】</h4>
             <p className="answer-text">{result.answer}</p>
           </div>
 
           <div className="products-section">
-            <h4 className="products-title">为你推荐</h4>
+            <h4 className="products-title">RECOMMENDED FOR YOU</h4>
+            <p className="products-subtitle">Crystal Energy Accessories</p>
             <div className="products-grid">
               {products.map(product => (
-                <div key={product.id} className="product-card">
-                  <div className="product-image">{product.image}</div>
-                  <h5 className="product-name">{product.name}</h5>
-                  <p className="product-description">{product.description}</p>
-                  <div className="product-footer">
-                    <span className="product-price">{product.price}</span>
-                    <button className="product-button">查看</button>
+                <div key={product.id} className="product-card-horizontal">
+                  {/* Left: Product Image */}
+                  <div className="product-left">
+                    <div className="product-image-container">
+                      <img src={product.image} alt={product.name} className="product-image" />
+                    </div>
+                    <div className="product-label">{product.name}</div>
+                  </div>
+                  
+                  {/* Right: Ratings */}
+                  <div className="product-right">
+                    <div className="product-score-badge">
+                      <div className="score-number">{product.score}%</div>
+                      <div className="score-label">Recommended</div>
+                    </div>
+                    <div className="product-ratings">
+                      <div className="rating-item">
+                        <span className="rating-label">Career</span>
+                        <div className="stars">
+                          {[...Array(5)].map((_, i) => (
+                            <span key={i} className={i < product.ratings.career ? 'star filled' : 'star'}>
+                              ★
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="rating-item">
+                        <span className="rating-label">Wealth</span>
+                        <div className="stars">
+                          {[...Array(5)].map((_, i) => (
+                            <span key={i} className={i < product.ratings.financial ? 'star filled' : 'star'}>
+                              ★
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="rating-item">
+                        <span className="rating-label">Love</span>
+                        <div className="stars">
+                          {[...Array(5)].map((_, i) => (
+                            <span key={i} className={i < product.ratings.relationship ? 'star filled' : 'star'}>
+                              ★
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="rating-item">
+                        <span className="rating-label">Health</span>
+                        <div className="stars">
+                          {[...Array(5)].map((_, i) => (
+                            <span key={i} className={i < product.ratings.health ? 'star filled' : 'star'}>
+                              ★
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -227,7 +327,7 @@ function FortunePage() {
           </div>
 
           <button className="reset-button" onClick={handleReset}>
-            重新占卜
+            New Reading
           </button>
         </div>
       )}

@@ -8,10 +8,10 @@ function App() {
     <Router>
       <div className="app">
         <nav className="navbar">
-          <h1 className="logo">🔮 水晶球占卜</h1>
+          <h1 className="logo">🔮 Destiny</h1>
           <div className="nav-links">
-            <Link to="/" className="nav-link">塔罗占卜</Link>
-            <Link to="/fortune" className="nav-link">生日占卜</Link>
+            <Link to="/" className="nav-link">Tarot</Link>
+            <Link to="/fortune" className="nav-link">Birthday</Link>
           </div>
         </nav>
         

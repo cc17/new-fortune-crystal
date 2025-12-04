@@ -1,8 +1,8 @@
 export const tarotCards = [
   {
     id: 1,
-    name: "愚者",
-    description: "新的开始，充满无限可能",
+    name: "The Fool",
+    description: "New beginnings, infinite possibilities",
     love: 75,
     wealth: 60,
     career: 70,
@@ -10,8 +10,8 @@ export const tarotCards = [
   },
   {
     id: 2,
-    name: "魔术师",
-    description: "创造力和行动力",
+    name: "The Magician",
+    description: "Creativity and action power",
     love: 85,
     wealth: 90,
     career: 95,
@@ -19,8 +19,8 @@ export const tarotCards = [
   },
   {
     id: 3,
-    name: "女祭司",
-    description: "内在智慧与直觉",
+    name: "The High Priestess",
+    description: "Inner wisdom and intuition",
     love: 70,
     wealth: 65,
     career: 75,
@@ -28,8 +28,8 @@ export const tarotCards = [
   },
   {
     id: 4,
-    name: "皇后",
-    description: "丰饶与创造",
+    name: "The Empress",
+    description: "Abundance and creation",
     love: 95,
     wealth: 85,
     career: 80,
@@ -37,8 +37,8 @@ export const tarotCards = [
   },
   {
     id: 5,
-    name: "皇帝",
-    description: "权威与掌控",
+    name: "The Emperor",
+    description: "Authority and control",
     love: 70,
     wealth: 90,
     career: 95,
@@ -46,8 +46,8 @@ export const tarotCards = [
   },
   {
     id: 6,
-    name: "教皇",
-    description: "传统与信仰",
+    name: "The Hierophant",
+    description: "Tradition and belief",
     love: 80,
     wealth: 75,
     career: 85,
@@ -55,8 +55,8 @@ export const tarotCards = [
   },
   {
     id: 7,
-    name: "恋人",
-    description: "爱情与选择",
+    name: "The Lovers",
+    description: "Love and choice",
     love: 98,
     wealth: 70,
     career: 75,
@@ -64,8 +64,8 @@ export const tarotCards = [
   },
   {
     id: 8,
-    name: "战车",
-    description: "胜利与前进",
+    name: "The Chariot",
+    description: "Victory and progress",
     love: 75,
     wealth: 85,
     career: 92,
@@ -73,8 +73,8 @@ export const tarotCards = [
   },
   {
     id: 9,
-    name: "力量",
-    description: "勇气与坚持",
+    name: "Strength",
+    description: "Courage and persistence",
     love: 85,
     wealth: 80,
     career: 88,
@@ -82,8 +82,8 @@ export const tarotCards = [
   },
   {
     id: 10,
-    name: "隐者",
-    description: "内省与智慧",
+    name: "The Hermit",
+    description: "Introspection and wisdom",
     love: 60,
     wealth: 70,
     career: 75,
@@ -91,8 +91,8 @@ export const tarotCards = [
   },
   {
     id: 11,
-    name: "命运之轮",
-    description: "转机与变化",
+    name: "Wheel of Fortune",
+    description: "Turning point and change",
     love: 80,
     wealth: 88,
     career: 85,
@@ -100,8 +100,8 @@ export const tarotCards = [
   },
   {
     id: 12,
-    name: "正义",
-    description: "公平与平衡",
+    name: "Justice",
+    description: "Fairness and balance",
     love: 75,
     wealth: 82,
     career: 90,
@@ -109,8 +109,8 @@ export const tarotCards = [
   },
   {
     id: 13,
-    name: "倒吊人",
-    description: "换位思考与牺牲",
+    name: "The Hanged Man",
+    description: "Perspective and sacrifice",
     love: 65,
     wealth: 60,
     career: 70,
@@ -118,8 +118,8 @@ export const tarotCards = [
   },
   {
     id: 14,
-    name: "死神",
-    description: "结束与新生",
+    name: "Death",
+    description: "Ending and rebirth",
     love: 70,
     wealth: 75,
     career: 80,
@@ -127,8 +127,8 @@ export const tarotCards = [
   },
   {
     id: 15,
-    name: "节制",
-    description: "平衡与和谐",
+    name: "Temperance",
+    description: "Balance and harmony",
     love: 85,
     wealth: 80,
     career: 82,
@@ -136,8 +136,8 @@ export const tarotCards = [
   },
   {
     id: 16,
-    name: "恶魔",
-    description: "诱惑与束缚",
+    name: "The Devil",
+    description: "Temptation and bondage",
     love: 60,
     wealth: 70,
     career: 65,
@@ -145,8 +145,8 @@ export const tarotCards = [
   },
   {
     id: 17,
-    name: "塔",
-    description: "突变与重建",
+    name: "The Tower",
+    description: "Sudden change and reconstruction",
     love: 50,
     wealth: 55,
     career: 60,
@@ -154,8 +154,8 @@ export const tarotCards = [
   },
   {
     id: 18,
-    name: "星星",
-    description: "希望与灵感",
+    name: "The Star",
+    description: "Hope and inspiration",
     love: 90,
     wealth: 85,
     career: 88,
@@ -163,8 +163,8 @@ export const tarotCards = [
   },
   {
     id: 19,
-    name: "月亮",
-    description: "梦想与幻想",
+    name: "The Moon",
+    description: "Dreams and imagination",
     love: 75,
     wealth: 70,
     career: 72,
@@ -172,8 +172,8 @@ export const tarotCards = [
   },
   {
     id: 20,
-    name: "太阳",
-    description: "成功与喜悦",
+    name: "The Sun",
+    description: "Success and joy",
     love: 95,
     wealth: 95,
     career: 95,
@@ -181,8 +181,8 @@ export const tarotCards = [
   },
   {
     id: 21,
-    name: "审判",
-    description: "觉醒与重生",
+    name: "Judgement",
+    description: "Awakening and rebirth",
     love: 80,
     wealth: 85,
     career: 88,
@@ -190,12 +190,11 @@ export const tarotCards = [
   },
   {
     id: 22,
-    name: "世界",
-    description: "完成与圆满",
+    name: "The World",
+    description: "Completion and fulfillment",
     love: 92,
     wealth: 90,
     career: 92,
     study: 88
   }
 ];
-

@@ -1,25 +1,25 @@
-// 计算生肖
+// Calculate Chinese Zodiac
 export function getChineseZodiac(year) {
-  const zodiacs = ['鼠', '牛', '虎', '兔', '龙', '蛇', '马', '羊', '猴', '鸡', '狗', '猪'];
+  const zodiacs = ['Rat', 'Ox', 'Tiger', 'Rabbit', 'Dragon', 'Snake', 'Horse', 'Goat', 'Monkey', 'Rooster', 'Dog', 'Pig'];
   return zodiacs[(year - 4) % 12];
 }
 
-// 计算星座
+// Calculate Constellation
 export function getConstellation(month, day) {
   const constellations = [
-    { name: '摩羯座', endDay: 19 },
-    { name: '水瓶座', endDay: 18 },
-    { name: '双鱼座', endDay: 20 },
-    { name: '白羊座', endDay: 19 },
-    { name: '金牛座', endDay: 20 },
-    { name: '双子座', endDay: 21 },
-    { name: '巨蟹座', endDay: 22 },
-    { name: '狮子座', endDay: 22 },
-    { name: '处女座', endDay: 22 },
-    { name: '天秤座', endDay: 22 },
-    { name: '天蝎座', endDay: 21 },
-    { name: '射手座', endDay: 21 },
-    { name: '摩羯座', endDay: 31 }
+    { name: 'Capricorn', endDay: 19 },
+    { name: 'Aquarius', endDay: 18 },
+    { name: 'Pisces', endDay: 20 },
+    { name: 'Aries', endDay: 19 },
+    { name: 'Taurus', endDay: 20 },
+    { name: 'Gemini', endDay: 21 },
+    { name: 'Cancer', endDay: 22 },
+    { name: 'Leo', endDay: 22 },
+    { name: 'Virgo', endDay: 22 },
+    { name: 'Libra', endDay: 22 },
+    { name: 'Scorpio', endDay: 21 },
+    { name: 'Sagittarius', endDay: 21 },
+    { name: 'Capricorn', endDay: 31 }
   ];
 
   const monthIndex = month - 1;
@@ -30,36 +30,36 @@ export function getConstellation(month, day) {
   }
 }
 
-// Mock答案生成器
+// Mock Answer Generator
 export function generateAnswer(topic, name, birthday) {
   const answers = {
-    '爱情': [
-      '近期你的爱情运势非常旺盛，单身的你有机会遇到心仪的对象。已有伴侣的人感情会更加稳定，建议多沟通交流。',
-      '爱情方面需要更多的耐心，真爱需要时间来培养。保持真诚和善良，你的真命天子/天女正在路上。',
-      '你的魅力指数正在上升，周围会有人被你吸引。但要注意甄别，选择真正适合自己的人。',
-      '感情上可能会遇到一些小波折，但这都是成长的机会。勇敢面对，你会收获更成熟的爱情。'
+    'Love': [
+      'Your love fortune is flourishing. Singles may meet someone special. Those in relationships will find more stability through communication.',
+      'Love requires patience. True love takes time to develop. Stay genuine and kind, your soulmate is on the way.',
+      'Your charm is rising and attracting others. Choose wisely and find someone truly compatible.',
+      'You may face some romantic challenges, but these are growth opportunities. Face them bravely for a more mature love.'
     ],
-    '事业': [
-      '事业运势看好，近期会有不错的发展机会。把握住关键时刻，展现自己的才华，升职加薪指日可待。',
-      '工作中可能会遇到挑战，但这正是证明自己能力的好机会。保持积极态度，困难终将过去。',
-      '贵人运旺盛，会有前辈或领导赏识你的才能。多学习，多请教，对事业发展大有裨益。',
-      '适合稳扎稳打，不宜冒进。专注于提升专业技能，为未来的发展打下坚实基础。'
+    'Career': [
+      'Your career prospects look excellent. Great opportunities are coming. Seize the moment and showcase your talents.',
+      'Work challenges ahead, but they prove your capabilities. Stay positive and overcome obstacles.',
+      'Strong mentor luck. Seniors or leaders will recognize your talent. Learn and consult for career growth.',
+      'Focus on steady progress. Concentrate on improving professional skills for a solid foundation.'
     ],
-    '财富': [
-      '财运亨通，会有意外之财降临。但要注意合理规划，不要盲目消费。',
-      '正财运稳定，偏财运一般。脚踏实地工作，收入会稳步增长。可以考虑一些稳健的投资。',
-      '近期不宜进行高风险投资，保守理财为上策。开源节流，积少成多。',
-      '会有新的收入来源，可能是副业或兼职。把握机会，但要注意不要影响主业。'
+    'Wealth': [
+      'Excellent wealth fortune with unexpected gains. Plan wisely and avoid impulsive spending.',
+      'Stable regular income, moderate windfall luck. Work steadily for gradual income growth. Consider stable investments.',
+      'Avoid high-risk investments now. Conservative financial management is best. Save and accumulate gradually.',
+      'New income sources may appear through side jobs or freelancing. Seize opportunities without affecting your main work.'
     ],
-    '学业': [
-      '学习运势极佳，是提升自己的好时机。坚持努力，成绩会有明显进步。',
-      '需要更加专注和自律，减少外界干扰。找到适合自己的学习方法，效率会大大提高。',
-      '可以多向老师和同学请教，团队学习效果会更好。不要害怕犯错，错误是最好的老师。',
-      '考试运不错，但不能掉以轻心。保持平常心，发挥出正常水平就能取得好成绩。'
+    'Study': [
+      'Excellent study fortune. Great time for self-improvement. Keep working hard for notable progress.',
+      'Need more focus and discipline. Reduce distractions and find your learning method for better efficiency.',
+      'Consult teachers and classmates more. Team learning works better. Don\'t fear mistakes - they\'re the best teachers.',
+      'Good exam luck, but don\'t be complacent. Stay calm and perform normally for good results.'
     ]
   };
 
-  const topicAnswers = answers[topic] || answers['爱情'];
+  const topicAnswers = answers[topic] || answers['Love'];
   return topicAnswers[Math.floor(Math.random() * topicAnswers.length)];
 }
 
