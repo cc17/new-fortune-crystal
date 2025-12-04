@@ -8,7 +8,7 @@ function App() {
     <Router>
       <div className="app">
         <nav className="navbar">
-          <h1 className="logo">🔮 Destiny</h1>
+          <h1 className="logo">🔮 HALORA</h1>
           <div className="nav-links">
             <Link to="/" className="nav-link">Tarot</Link>
             <Link to="/fortune" className="nav-link">Birthday</Link>
